@@ -12,7 +12,7 @@
     <title>sample</title>
 </head>
 <body>
-  sample(브랜치 변경)
+  sample(브랜치 변경2)
   <ul>
       <c:forEach items="${sampleDataList}" var="data" varStatus="status">
         <li>${data.sn} / ${data.nm}</li>
