@@ -1,5 +1,4 @@
 #mariadb ??
-<<<<<<< HEAD
 spring:
     datasource:
         driver-class-name: org.mariadb.jdbc.Driver
@@ -7,24 +6,10 @@ spring:
         username: jdp
         password: jdp1q2w
     mvc: 
-=======
-spring: 
-    datasource : 
-        driver-class-name: org.mariadb.jdbc.Driver
-        url: jdbc:mariadb://localhost:3306/profile
-        username: jdp
-        password: jdp1q2w
-
-    mvc :
->>>>>>> 1c81504bfc219d5bd0ce9ae71f7c084661febffd
         view: 
             prefix: /WEB-INF/jsp/
             suffix: .jsp
 
 # mybatis
-<<<<<<< HEAD
 mybatis:
-=======
-mybatis: 
->>>>>>> 1c81504bfc219d5bd0ce9ae71f7c084661febffd
     mapper-locations: mapper/**/*.xml
