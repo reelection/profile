@@ -9,4 +9,6 @@ public class ResumeDHServiceImpl {
 
     @Resource(name="resumeDHMapper")
     ResumeDHMapper resumeDHMapper;
+
+
 }
