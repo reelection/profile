@@ -1,0 +1,42 @@
+.resumeWrapper{
+    position: relative;
+    width: 100%;
+}
+.resumeContainer{
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 200px;
+    text-align: left;
+}
+.sexDiv{
+    display: inline-block;
+}
+.star{
+    color: red;
+}
+
+.description{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: 13px;
+    color: #999;
+    font-weight: normal;
+}
+.input {
+    display: inline-block;
+}
+.dropdown{
+    display: inline-block;
+}
+
+.row input{
+    width: 100px;
+}
+#UserInfo_M_Email{
+    width: 200px;
+}
+#temp_M_Addr_Text{
+    width: 200px;
+}
