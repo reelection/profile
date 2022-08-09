@@ -10,14 +10,11 @@
 <head>
     <title>이력서</title>
     <link rel="stylesheet" type="text/css" href="/css/resume_editDh.css">
+    <script src="/js/jquery/jquery-3.6.0.js"></script>
     <script language="javascript">
 
       function goPopup(){
-        // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
           var pop = window.open("/popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
-          
-        // 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
-          //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
       }
       /** API 서비스 제공항목 확대 (2017.02) **/
       function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn
@@ -58,7 +55,6 @@
                 <div class="input input-profile-email is-label is-value">
                     <label for="UserInfo_M_Email">이메일 : </label>
                     <input type="email" name="UserInfo.M_Email" id="UserInfo_M_Email" data-format-type="email" value="kdh6335@naver.com" autocomplete="off" spellcheck="false">
-                    <div class="autocomplete hidden" aria-hidden="true">
                         <div class="list"><ul></ul></div>
                     </div>
                     <div class="validation hidden" aria-hidden="true"></div>
@@ -71,12 +67,10 @@
                 <div class="input is-label input-profile-tel">
                     <label for="UserInfo_M_Home_Phone">전화번호 : </label>
                     <input type="text" name="UserInfo.M_Home_Phone" id="UserInfo_M_Home_Phone" placeholder="02-1234-1234" maxlength="30" autocomplete="off" data-format-type="tel">
-                    <div class="validation hidden" aria-hidden="true"></div>
                 </div>
                 <div class="input is-label input-profile-hp is-value">
                     <label for="UserInfo_M_Hand_Phone">휴대폰번호<span class="star">*</span> : </label>
-                    <input type="text" name="UserInfo.M_Hand_Phone" id="UserInfo_M_Hand_Phone" placeholder="010-1234-1234" value="010-9964-8700" maxlength="30" autocomplete="off" data-format-type="hp">
-                    <div class="validation hidden" aria-hidden="true"></div>
+                    <input type="text" name="UserInfo.M_Hand_Phone" id="UserInfo_M_Hand_Phone" placeholder="010-1234-1234" value="" maxlength="30" autocomplete="off" data-format-type="hp">
                 </div>
                 <input id="UserInfo_M_Zipcode" name="UserInfo.M_Zipcode" type="hidden" value=""/>
                 <input id="UserInfo_M_AddAddr" name="UserInfo.M_AddAddr" type="hidden" value=""/>
@@ -85,10 +79,7 @@
                 <input type="text" id="temp_M_Addr_Text" readonly="" value=""/>
                 <input type="button" class="icon icon-search"  aria-hidden="true" onclick="goPopup();" value="검색"/>
             </div>
-            
-            
-            <div class="picture dropped" style="">
-                
+            <div class="picture dropped" style="display: inline-block;">
                     <div class="guide" style="display: none;">사진추가</div>
                     <a href="javascript:;" class="buttonAddFile" style="display: none;">
                         사진등록
