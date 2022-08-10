@@ -40,3 +40,6 @@
 #temp_M_Addr_Text{
     width: 200px;
 }
+.label{
+    display: inline-block;
+}
