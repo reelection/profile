@@ -5,6 +5,8 @@ import com.jdp.profile.service.impl.ResumeDHMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+
 import javax.annotation.Resource;
 
 @Controller
@@ -21,10 +23,18 @@ public class ResumeDHController {
     }
 
     @PostMapping( "/userInfoSave")
-    public String userInfoSave(UserInfoDTO userInfo) {
+    public void userInfoSave(UserInfoDTO userInfo) {
        // System.out.println("테스트!!22222");
-       
-        return "resume/resumeEditDH";
+       System.out.println(userInfo.getUserName());
+       System.out.println(userInfo.getUserBorn());
+       System.out.println(userInfo.getUserEmail());
+       System.out.println(userInfo.getUserGender());
+       System.out.println(userInfo.getUserJibunAddr());
+       System.out.println(userInfo.getUserHomePhone());
+       System.out.println(userInfo.getUserZipcode());
+       System.out.println(userInfo.getUserPhone());
+       //System.out.println(Arrays.toString(userInfo.getTest()));
+       //return "resume/resumeEditDH";
     }
 
 }
