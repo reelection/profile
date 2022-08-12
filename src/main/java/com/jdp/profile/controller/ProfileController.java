@@ -1,7 +1,6 @@
 package com.jdp.profile.controller;
 
 import com.jdp.profile.service.SampleService;
-import org.apache.ibatis.javassist.tools.rmi.Sample;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
