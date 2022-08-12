@@ -43,23 +43,23 @@ $(document).on("change",".schoolType",function(){
     }else if(reusult==='1'){
         string =  '<div class="input input-education-name is-label is-ellipsis  is-value" id="UnivSchoolautoComplete_c2" data-comp_type="jkAc">'+
                   '  <label for="SchlNameSearch">학교명 <span class="star">*</span> : </label>'+
-                  '  <input type="text" class="SchlNameSearch" name="SchlNameSearch" value="서영대학교" autocomplete="off" maxlength="50">'+
+                  '  <input type="text" class="SchlNameSearch" name="SchlNameSearch" value="" autocomplete="off" maxlength="50">'+
                   '  <div class="validation hidden" aria-hidden="true">학교명을 입력해주세요</div>'+
                   '  <div class="autocomplete hidden" aria-hidden="true" data-comp_type="jkAcResultWrap"></div>'+
-                  '  <input type="hidden" name="schlName" id="schlName" data-type="School_Name" value="서영대학교">'+
-                  '  <input type="hidden" name="schoolCode" id="schoolCode" data-type="School_Code" value="C0076001">'+
-                  '  <input type="hidden" name="areaCode" id="areaCode" data-type="GG_Area_Code" value="8">'+
+                  '  <input type="hidden" name="schlName" id="schlName" data-type="School_Name" value="">'+
+                  '  <input type="hidden" name="schoolCode" id="schoolCode" data-type="School_Code" value="">'+
+                  '  <input type="hidden" name="areaCode" id="areaCode" data-type="GG_Area_Code" value="">'+
                   '  <i class="icon icon-search" aria-hidden="true"></i>'+
                   '</div>'+
                   '<input type="hidden" name="UnivSchool[c2].Schl_Type_Code" value="1">'+
                   '<div class="input input-education-startdate is-label is-value">'+
                   '  <label for="entcYM">입학년월 <span class="star">*</span> : </label>'+
-                  '  <input type="text" name="entcYM" class="entcYM" data-format-type="month" value="201003" placeholder="2012.03">'+
+                  '  <input type="text" name="entcYM" class="entcYM" data-format-type="month" value="" placeholder="2012.03">'+
                   '  <div class="validation hidden" aria-hidden="true"></div>'+
                   '</div>'+
                   '<div class="input input-education-enddate is-label is-value">'+
                   '  <label for="gradYear">졸업년월 <span class="star">*</span> : </label>'+
-                  '  <input type="text" name="gradYear" class="gradYear" data-format-type="month" value="201502" placeholder="2016.02">'+
+                  '  <input type="text" name="gradYear" class="gradYear" data-format-type="month" value="" placeholder="2016.02">'+
                   '  <div class="validation hidden" aria-hidden="true"></div>'+
                   '</div>'+
                   '<div class="dropdown dropdown-edcation-state is-label selected">'+
@@ -265,7 +265,7 @@ $(document).ready(function () {
         }
         value = value+1;
         $("#school_containers").append('<div class="container container'+value+'"></div');
-        let string = '<div class="row">'+
+        let string ='<div class="row">'+
                     '   <div class="dropdown dropdown-education-category selected is-label">'+
                     '        <div class="label" aria-hidden="false">학교구분 : </div>'+
                     '        <select class="schoolType"> '+
@@ -277,8 +277,9 @@ $(document).ready(function () {
                     '        </select>'+
                     '    </div>'+
                     '    <div class="schoolTypeContainer"></div>'+
+                    '   <button type="button" class="button buttonDeleteField"><span>삭제</span></button>'+
                     '</div>'+
-                    '<button type="button" class="button buttonDeleteField"><span>삭제</span></button><br>';
+                    '<br>';
         $(".container"+value).append(string);
     });
 
