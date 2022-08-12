@@ -1,0 +1,82 @@
+.resumeWrapper{
+    position: relative;
+    width: 100%;
+}
+.resumeContainer{
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 200px;
+    text-align: left;
+}
+.sexDiv{
+    display: inline-block;
+}
+.star{
+    color: red;
+}
+
+.description{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: 13px;
+    color: #999;
+    font-weight: normal;
+}
+.input {
+    display: inline-block;
+}
+.dropdown{
+    display: inline-block;
+}
+
+.row input{
+    width: 100px;
+}
+#UserInfo_M_Email{
+    width: 200px;
+}
+#temp_M_Addr_Text{
+    width: 200px;
+}
+.label{
+    display: inline-block;
+}
+.form{
+    position: relative;
+    width: 940px;
+    margin-bottom: 34px;
+    padding: 20px 20px 10px;
+    background-color: #fff;
+    border: 1px solid #dbe0e9;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form .row{
+    height: 70px;
+}
+.formProfile .picture{
+    z-index: 200;
+    overflow: hidden;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 103px;
+    height: 129px;    
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+}
+.checkbox input{
+    width: 10px;
+}
+.schoolTypeContainer{
+    display: inline-block;
+}
+.container div{
+    margin-bottom: 5px;
+}

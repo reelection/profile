@@ -9,7 +9,18 @@ spring:
         view: 
             prefix: /WEB-INF/jsp/
             suffix: .jsp
+    #스프링부트 자동빌드
+    devtools:
+        livereload:
+            enabled: true
+        restart:
+            enabled: true
 
 # mybatis
 mybatis:
+<<<<<<< HEAD
     mapper-locations: mapper/**/*.xml
+=======
+    mapper-locations: mapper/**/*.xml
+   
+>>>>>>> kdh
