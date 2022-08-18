@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jdp.profile.service.impl.ResumeJSMapper">
+    <update id="mergeResume" parameterType="com.jdp.profile.model.EduDTO">
+        <selectKey resultType="Integer" keyProperty="eduNo" order="BEFORE">
+            SELECT IFNULL(MAX(EDU_NO),0)+1 FROM EDU
+        </selectKey>
+        INSERT INTO EDU(
+            MBR_NO,
+            EDU_NO,
+            EDU_NM,
+            EDU_ORG_NM,
+            EDU_ST_DD,
+            EDU_END_DD,
+            EDU_CN,
+            RG_ID,
+            RG_DTTM
+        ) VALUES (
+            #{mbrNo, jdbcType=VARCHAR},
+            #{eduNo},
+            #{eduNm, jdbcType=VARCHAR},
+            #{eduOrgNm, jdbcType=VARCHAR},
+            #{eduStDd, jdbcType=VARCHAR},
+            #{eduEndDd, jdbcType=VARCHAR},
+            #{eduCn, jdbcType=VARCHAR},
+            #{mbrNo, jdbcType=VARCHAR},
+            current_timestamp()
+        )
+        ON DUPLICATE KEY
+        UPDATE
+            <if test="eduNm != null and eduNm !=''">
+                EDU_NM = #{eduNm, jdbcType=VARCHAR},
+            </if>
+            <if test="eduOrgNm != null and eduOrgNm !=''">
+                EDU_ORG_NM = #{eduOrgNm, jdbcType=VARCHAR},
+            </if>
+            <if test="eduStDd != null and eduStDd !=''">
+                EDU_ST_DD = #{eduStDd, jdbcType=VARCHAR},
+            </if>
+            <if test="eduEndDd != null and eduEndDd !=''">
+                EDU_END_DD = #{eduEndDd, jdbcType=VARCHAR},
+            </if>
+            <if test="eduCn != null and eduCn !=''">
+                EDU_CN = #{eduCn, jdbcType=VARCHAR},
+            </if>
+            CG_ID = #{mbrNo, jdbcType=VARCHAR},
+            CG_DTTM = current_timestamp()
+    </update>
+
+    <select id="getEduList" parameterType="com.jdp.profile.model.MbrDTO" resultType="com.jdp.profile.model.EduDTO">
+        SELECT
+           MBR_NO
+           ,EDU_NO
+           ,EDU_NM
+           ,EDU_ORG_NM
+           ,EDU_ST_DD
+           ,EDU_END_DD
+           ,EDU_CN
+           ,RG_ID
+           ,DATE_FORMAT(RG_DTTM,'%Y-%m-%d') AS RG_DTTM
+           ,CG_ID
+           ,DATE_FORMAT(CG_DTTM,'%Y-%m-%d') AS CG_DTTM
+        FROM EDU
+        WHERE MBR_NO = #{mbrNo, jdbcType=VARCHAR}
+    </select>
+
+</mapper>
