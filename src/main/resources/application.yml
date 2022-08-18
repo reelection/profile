@@ -18,9 +18,5 @@ spring:
 
 # mybatis
 mybatis:
-<<<<<<< HEAD
     mapper-locations: mapper/**/*.xml
-=======
-    mapper-locations: mapper/**/*.xml
-   
->>>>>>> kdh
+
