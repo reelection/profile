@@ -52,6 +52,10 @@
             let value = e.path[0].value;
             //document.getElementById("uniSchoolGradePrftScr").value = velue;
             e.target.nextElementSibling.value = value;
+          }else if(e.target && e.target.classList[0]=== 'socialActTypeCodeSelect'){
+            let value = e.path[0].value;
+            //document.getElementById("uniSchoolGradePrftScr").value = velue;
+            e.target.nextElementSibling.value = value;
           }
         });
       </script>
@@ -182,6 +186,84 @@
               <button type="button" class="button buttonAddField" id="school_addbutton"><span>추가</span></button>
             </div>
           </div>
+          <div class="formWrap formWrapIntern" id="formIntern" >
+            <h2 class="header">인턴·대외활동</h2>
+            <div class="form formIntern">
+              <div id="social_containers">
+                <div class="container container1">
+                  <input type="hidden" name="Social.Index" value="1_1660888587289">
+                  <input type="hidden" name="Social[1_1660888587289].Index_Name" value="1_1660888587289">
+                  <div class="row">
+                      <div class="dropdown dropdown-intern-category is-label">
+                          <div class="label hidden" aria-hidden="true">활동구분<span class="star">*</span> : </div>
+                          <select class="socialActTypeCodeSelect">
+                            <option value="1">인턴</option>
+                            <option value="2">아르바이트</option>
+                            <option value="3">동아리</option>
+                            <option value="4">자원봉사</option>
+                            <option value="5">사회활동</option>
+                            <option value="6">교내활동</option>
+                          </select>
+                          <input type="hidden" name="socialActTypeCode" class="socialActTypeCode" value="">
+                      </div>
+                      <div class="input input-intern-name is-label">
+                          <label for="SocialInstName">회사/기관/단체명 <span class="star">*</span> : </label>
+                          <input type="text" name="SocialInstName" class="SocialInstName" value="" maxlength="50">
+                          <div class="validation hidden" aria-hidden="true"></div>
+                      </div>
+                      <div class="input input-intern-startdate is-label">
+                          <label for="SocialActStartYM">시작년월 :</label>
+                          <input type="text" name="SocialActStartYM" id="SocialActStartYM" value="" data-format-type="month" placeholder="2016.03">
+                          <div class="validation hidden" aria-hidden="true"></div>
+                      </div>
+                      <div class="input input-intern-enddate is-label">
+                          <label for="SocialActEndYM">종료년월 : </label>
+                          <input type="text" name="SocialActEndYM" class="SocialActEndYM" value="" data-format-type="month" placeholder="2016.06">
+                          <div class="validation hidden" aria-hidden="true"></div>
+                      </div>
+                  </div>
+                  <div class="row" style="height: 85px;">
+                      <div class="textarea is-label">
+                          <label for="SocialActCntnt">활동내용</label>
+                          <textarea name="SocialActCntnt" cols="30" rows="10" class="SocialActCntnt" placeholder="직무와 관련된 경험에 대해 (상황 - 노력 - 결과)순으로 작성하는것이 좋습니다."></textarea>
+                      </div>
+                  </div>
+                  <button type="button" class="button fieldDel"><span>인턴·대외활동 삭제</span></button>
+                </div>
+              </div>
+              <button type="button" class="button buttonAddField" id="SocialActAdd"><span>인턴·대외활동 추가</span></button>
+            </div>
+          </div>
+
+          <div class="formWrap formWrapCertificate" id="formLicense" style="">
+            <div class="header devNaverElement">
+                <h2 class="header">자격증</h2>
+            </div>
+            <div class="form formCertificate">
+                <div id="license_containers">
+                <div class="container container1" data-cid="c14">
+                    <div class="row licenseRow">
+                        <div class="input input-certificate-name is-label  is-value" data-comp_type="jkAc">
+                            <input type="hidden" name="License[c14].Lc_Code" data-type="Lc_Code" value="">
+                            <label for="licenseName">자격증 명 <span class="star">*</span> : </label>
+                            <input type="text" class="licenseName" name="licenseName" value="" maxlength="50">
+                        </div>
+                        <div class="input input-certificate-agency is-label  is-value">
+                            <label for="licenseLcPub">발행처 : </label>
+                            <input type="text" name="licenseLcPub" class="licenseLcPub" value="" data-type="Lc_Pub" maxlength="50">
+                            <div class="validation hidden" aria-hidden="true"></div>
+                        </div>
+                        <div class="input input-certificate-term is-label  is-value">
+                            <label for="licenseLcYYMM">취득월 : </label>
+                            <input type="text" name="licenseLcYYMM" class="licenseLcYYMM" value="" data-format-type="month" placeholder="2017.10">
+                        </div>
+                    </div>
+                    <button type="button" class="button fieldDel"><span>자격증 삭제</span></button>
+                </div>
+            </div>
+                <button type="button" class="button buttonAddField" id="licenseActAdd"><span>자격증 추가</span></button>
+            </div>
+        </div>
         </form>
       </div>
     </div>
