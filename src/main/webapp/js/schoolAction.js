@@ -1,4 +1,4 @@
-$(document).on("change",".schoolType",function(){
+$(document).on("change",".schoolTypeSelect",function(){
     let attribute = $(this).parents("div")[2].getAttribute("class").split(" ");
     attribute = attribute[1];
     console.log(attribute);
@@ -252,6 +252,13 @@ $(document).on("change",".schoolType",function(){
     }
     let row = $(this).parents("div")[1];
     row.childNodes[3].innerHTML = string;
+    if(reusult!=='0'){
+        row.childNodes[3].parentNode.parentNode.style.height = '120px';
+    }else{
+        row.childNodes[3].parentNode.parentNode.style.height = '';
+    }
+    
+
 });
 
 
@@ -268,7 +275,7 @@ $(document).ready(function () {
         let string ='<div class="row">'+
                     '   <div class="dropdown dropdown-education-category selected is-label">'+
                     '        <div class="label" aria-hidden="false">학교구분 : </div>'+
-                    '        <select class="schoolType"> '+
+                    '        <select class="schoolTypeSelect"> '+
                     '            <option ><span>학교구분</span></button>'+
                     '            <option value="0"><span>고등학교</span></button>'+
                     '            <option value="1"><span>대학(2,3년)</span></button>'+
@@ -280,15 +287,102 @@ $(document).ready(function () {
                     '   <button type="button" class="button buttonDeleteField"><span>삭제</span></button>'+
                     '</div>'+
                     '<br>';
-        $(".container"+value).append(string);
+        $("#school_containers .container"+value).append(string);
     });
 
     //학력 삭제 이벤트
     $(document).on("click",".buttonDeleteField",function(){
+        let containers =  $(this).parent().parent()[0];
+        let containersName = containers.className.split(" ")[1];
+        let parent = $(this).parent().parent().parent()[0];
+
+        parent.querySelector("."+containersName).remove();
+    })
+
+
+    //인턴 추가 이벤트
+    $("#SocialActAdd").click(function(){
+        let value = 0;
+        let containers =  $("#social_containers").children();
+        for (let name of containers) {
+            value = Number(name.className.split(" ")[1].replace("container",""));
+        }
+        value = value+1;
+        $("#social_containers").append('<div class="container container'+value+'"></div');
+        let string ='<div class="row">'+
+                    '    <div class="dropdown dropdown-intern-category is-label">'+
+                    '        <div class="label hidden" aria-hidden="true">활동구분<span class="star">*</span> : </div>'+
+                    '        <select class="socialActTypeCodeSelect">'+
+                    '        <option value="1">인턴</option>'+
+                    '        <option value="2">아르바이트</option>'+
+                    '        <option value="3">동아리</option>'+
+                    '        <option value="4">자원봉사</option>'+
+                    '        <option value="5">사회활동</option>'+
+                    '        <option value="6">교내활동</option>'+
+                    '       </select>'+
+                    '       <input type="hidden" name="socialActTypeCode" class="socialActTypeCode" value="">'+
+                    '    </div>'+
+                    '    <div class="input input-intern-name is-label">'+
+                    '        <label for="SocialInstName">회사/기관/단체명 <span class="star">*</span> : </label>'+
+                    '        <input type="text" name="SocialInstName" class="SocialInstName" value="" maxlength="50">'+
+                    '        <div class="validation hidden" aria-hidden="true"></div>'+
+                    '    </div>'+
+                    '    <div class="input input-intern-startdate is-label">'+
+                    '        <label for="SocialActStartYM">시작년월 :</label>'+
+                    '       <input type="text" name="SocialActStartYM" id="SocialActStartYM" value="" data-format-type="month" placeholder="2016.03">'+
+                    '        <div class="validation hidden" aria-hidden="true"></div>'+
+                    '    </div>'+
+                    '   <div class="input input-intern-enddate is-label">'+
+                    '       <label for="SocialActEndYM">종료년월 : </label>'+
+                    '        <input type="text" name="SocialActEndYM" class="SocialActEndYM" value="" data-format-type="month" placeholder="2016.06">'+
+                    '        <div class="validation hidden" aria-hidden="true"></div>'+
+                    '    </div>'+
+                    '</div>'+
+                    '<div class="row" style="height: 85px;">'+
+                    '    <div class="textarea is-label">'+
+                    '        <label for="SocialActCntnt">활동내용</label>'+
+                    '        <textarea name="SocialActCntnt" cols="30" rows="10" class="SocialActCntnt" placeholder="직무와 관련된 경험에 대해 (상황 - 노력 - 결과)순으로 작성하는것이 좋습니다."></textarea>'+
+                    '    </div>'+
+                    '</div>'+
+                    '<button type="button" class="button fieldDel"><span>인턴·대외활동 삭제</span></button>';
+        $("#social_containers .container"+value).append(string);
+    });
+    //인턴, 자격증 삭제 이벤트
+    $(document).on("click",".fieldDel",function(){
         let containers =  $(this).parent()[0];
         let containersName = containers.className.split(" ")[1];
         let parent = $(this).parent().parent()[0];
 
         parent.querySelector("."+containersName).remove();
-    })
+    });
+
+    //자격증 추가 이벤트
+    $("#licenseActAdd").click(function(){
+        let value = 0;
+        let containers =  $("#license_containers").children();
+        for (let name of containers) {
+            value = Number(name.className.split(" ")[1].replace("container",""));
+        }
+        value = value+1;
+        $("#license_containers").append('<div class="container container'+value+'"></div');
+        let string ='<div class="row licenseRow">'+
+                    '    <div class="input input-certificate-name is-label  is-value" data-comp_type="jkAc">'+
+                    '        <input type="hidden" name="License[c14].Lc_Code" data-type="Lc_Code" value="">'+
+                    '        <label for="licenseName">자격증 명 <span class="star">*</span> : </label>'+
+                    '        <input type="text" class="licenseName" name="licenseName" value="" maxlength="50">'+
+                    '    </div>'+
+                    '    <div class="input input-certificate-agency is-label  is-value">'+
+                    '        <label for="licenseLcPub">발행처 : </label>'+
+                    '        <input type="text" name="licenseLcPub" class="licenseLcPub" value="" data-type="Lc_Pub" maxlength="50">'+
+                    '        <div class="validation hidden" aria-hidden="true"></div>'+
+                    '    </div>'+
+                    '    <div class="input input-certificate-term is-label  is-value">'+
+                    '       <label for="licenseLcYYMM">취득월 : </label>'+
+                    '       <input type="text" name="licenseLcYYMM" class="licenseLcYYMM" value="" data-format-type="month" placeholder="2017.10">'+
+                    '   </div>'+
+                    '</div>'+
+                    '<button type="button" class="button fieldDel"><span>자격증 삭제</span></button>'+
+                    '<br>';
+        $("#license_containers .container"+value).append(string);
+    });
   });
