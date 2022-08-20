@@ -6,6 +6,7 @@ import com.jdp.profile.model.ReturnDTO;
 import com.jdp.profile.service.ResumeJSService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -33,8 +34,12 @@ public class ResumeJSController {
         eduList = resumeJSService.getEduList(mbrDTO);
         System.out.println("size : " + eduList.size());
         for (EduDTO eduDTO: eduList) {
-            String eduNm = eduDTO.getEduNm();
-            if(eduNm == null || "".equals(eduNm)) {
+            if(eduDTO == null) {
+                System.out.println("eduDTO is null");
+            } else {
+                System.out.println("eduDTO is not null");
+            }
+            if(StringUtils.isEmpty(eduDTO.getEduNm())) {
                 System.out.println("eduNo is null");
             } else {
                 System.out.println("eduNo is not null");
