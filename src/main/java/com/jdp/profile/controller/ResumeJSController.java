@@ -6,7 +6,6 @@ import com.jdp.profile.model.ReturnDTO;
 import com.jdp.profile.service.ResumeJSService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -32,19 +31,6 @@ public class ResumeJSController {
     public String resumeEditJS(ModelMap model, MbrDTO mbrDTO) {
         ArrayList<EduDTO> eduList;
         eduList = resumeJSService.getEduList(mbrDTO);
-        System.out.println("size : " + eduList.size());
-        for (EduDTO eduDTO: eduList) {
-            if(eduDTO == null) {
-                System.out.println("eduDTO is null");
-            } else {
-                System.out.println("eduDTO is not null");
-            }
-            if(StringUtils.isEmpty(eduDTO.getEduNm())) {
-                System.out.println("eduNo is null");
-            } else {
-                System.out.println("eduNo is not null");
-            }
-        }
         model.addAttribute("eduList", eduList);
         model.addAttribute("mbrNo", mbrDTO.getMbrNo());
         return "resume/resumeForm";
