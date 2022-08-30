@@ -140,13 +140,12 @@
                           <option value="2"><span>대학교(4년)</span></button>
                           <option value="3"><span>대학원</span></button>
                         </select>
-                        <input type="hidden" class="schoolType" name="schoolType" value="">
+                        <input type="hidden" class="schlType" name="schlType" value="0">
                     </div>
                     <div class="schoolTypeContainer">
                       <div class="input input-education-name search is-label is-ellipsis is-value" id="highSchoolAutocomplete_c1">
                           <label for="SchlNameSearch">학교명 <span class="star">*</span> : </label>
-                          <input type="text" id="SchlNameSearch" data-type="SchlNameSearch" value="" autocomplete="off" maxlength="50">
-                          <input type="hidden" name="schlName" class="schlName" data-type="School_Name" value="">
+                          <input type="text" class="schlName" name="schlName" data-type="SchlNameSearch" value="" autocomplete="off" maxlength="50">
                           <input type="hidden" name="schoolCode" class="schoolCode" data-type="School_Code" value="">
                           <input type="hidden" name="areaCode" class="areaCode" data-type="GG_Area_Code" value="">
                       </div>
@@ -162,21 +161,25 @@
                             <option value="5">졸업예정</option>
                             <option value="4">재학중</option>
                           </select>
-                          <input type="hidden" name="gradTypeCode" class="gradTypeCode" value="10">
+                          <input type="hidden" name="schlGradType" class="schlGradType" value="10">
                       </div>
                       <div class="dropdown dropdown-edcation-highschool-category is-label selected">
                           <div class="label" aria-hidden="false">전공계열 : </div>
                           <select class="majorAftnCodeSelect">
-                            <option value="1">문과</option>
-                            <option value="2">이과</option>
-                            <option value="3">전문(실업)</option>
-                            <option value="4">예체능</option>
+                            <option value="문과">문과</option>
+                            <option value="이과">이과</option>
+                            <option value="전문(실업)">전문(실업)</option>
+                            <option value="예체능">예체능</option>
                           </select>
-                          <input type="hidden" name="majorAftnCode" class="majorAftnCode" value="2">
+                          <input type="hidden" name="majorName" class="majorName" value="문과">
                       </div>
                       <div class="checkbox checkbox-education-ged devGedCheck" style="display: inline-block;">
                           <input type="checkbox" class="gedStat" name='gedStat' value="1">
                           <label for="gedStat">대입검정고시</label>
+                          <input type="hidden" name="schlGradePrftScr" class="schlGradePrftScr" value="0">
+                          <input type="hidden" name="schlGrade" class="schlGrade" value="0">
+                          <input type="hidden" name="schlMstrDctr" class="schlMstrDctr" value="0">
+                          <input type="hidden" name="entcYM" class="entcYM" value="0" placeholder="2012.03">
                       </div>
                     </div>
                     <button type="button" class="button buttonDeleteField"><span>삭제</span></button>
