@@ -238,7 +238,7 @@
             </div>
           </div>
 
-          <div class="formWrap formWrapCertificate" id="formLicense" style="">
+          <div class="formWrap formWrapCertificate" id="formLicense">
             <div class="header devNaverElement">
                 <h2 class="header">자격증</h2>
             </div>
