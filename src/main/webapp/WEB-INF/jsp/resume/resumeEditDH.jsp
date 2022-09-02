@@ -140,12 +140,12 @@
                           <option value="2"><span>대학교(4년)</span></button>
                           <option value="3"><span>대학원</span></button>
                         </select>
-                        <input type="hidden" class="schlType" name="schlType" value="0">
+                        <input type="hidden" class="schlType" name="SchlInfoList[0].schlType" value="0">
                     </div>
                     <div class="schoolTypeContainer">
                       <div class="input input-education-name search is-label is-ellipsis is-value" id="highSchoolAutocomplete_c1">
                           <label for="SchlNameSearch">학교명 <span class="star">*</span> : </label>
-                          <input type="text" class="schlName" name="schlName" data-type="SchlNameSearch" value="" autocomplete="off" maxlength="50">
+                          <input type="text" class="schlName" name="SchlInfoList[0].schlName" data-type="SchlNameSearch" value="" autocomplete="off" maxlength="50">
                           <input type="hidden" name="schoolCode" class="schoolCode" data-type="School_Code" value="">
                           <input type="hidden" name="areaCode" class="areaCode" data-type="GG_Area_Code" value="">
                       </div>
@@ -161,7 +161,7 @@
                             <option value="5">졸업예정</option>
                             <option value="4">재학중</option>
                           </select>
-                          <input type="hidden" name="schlGradType" class="schlGradType" value="10">
+                          <input type="hidden" name="schlGradType" class="SchlInfoList[0].schlGradType" value="10">
                       </div>
                       <div class="dropdown dropdown-edcation-highschool-category is-label selected">
                           <div class="label" aria-hidden="false">전공계열 : </div>
@@ -171,15 +171,15 @@
                             <option value="전문(실업)">전문(실업)</option>
                             <option value="예체능">예체능</option>
                           </select>
-                          <input type="hidden" name="majorName" class="majorName" value="문과">
+                          <input type="hidden" name="majorName" class="SchlInfoList[0].majorName" value="문과">
                       </div>
                       <div class="checkbox checkbox-education-ged devGedCheck" style="display: inline-block;">
-                          <input type="checkbox" class="gedStat" name='gedStat' value="1">
+                          <input type="checkbox" class="gedStat" name='SchlInfoList[0].gedStat' value="1">
                           <label for="gedStat">대입검정고시</label>
-                          <input type="hidden" name="schlGradePrftScr" class="schlGradePrftScr" value="0">
-                          <input type="hidden" name="schlGrade" class="schlGrade" value="0">
-                          <input type="hidden" name="schlMstrDctr" class="schlMstrDctr" value="0">
-                          <input type="hidden" name="entcYM" class="entcYM" value="0" placeholder="2012.03">
+                          <input type="hidden" name="SchlInfoList[0].schlGradePrftScr" class="schlGradePrftScr" value="0">
+                          <input type="hidden" name="SchlInfoList[0].schlGrade" class="schlGrade" value="0">
+                          <input type="hidden" name="SchlInfoList[0].schlMstrDctr" class="schlMstrDctr" value="0">
+                          <input type="hidden" name="SchlInfoList[0].entcYM" class="entcYM" value="0" placeholder="2012.03">
                       </div>
                     </div>
                     <button type="button" class="button buttonDeleteField"><span>삭제</span></button>
@@ -207,16 +207,16 @@
                             <option value="5">사회활동</option>
                             <option value="6">교내활동</option>
                           </select>
-                          <input type="hidden" name="socialActTypeCode" class="socialActTypeCode" value="">
+                          <input type="hidden" name="socialActType" class="socialActType" value="1">
                       </div>
                       <div class="input input-intern-name is-label">
-                          <label for="SocialInstName">회사/기관/단체명 <span class="star">*</span> : </label>
-                          <input type="text" name="SocialInstName" class="SocialInstName" value="" maxlength="50">
+                          <label for="SocialInstNm">회사/기관/단체명 <span class="star">*</span> : </label>
+                          <input type="text" name="SocialInstNm" class="SocialInstNm" value="" maxlength="50">
                           <div class="validation hidden" aria-hidden="true"></div>
                       </div>
                       <div class="input input-intern-startdate is-label">
-                          <label for="SocialActStartYM">시작년월 :</label>
-                          <input type="text" name="SocialActStartYM" id="SocialActStartYM" value="" data-format-type="month" placeholder="2016.03">
+                          <label for="SocialActSrtYM">시작년월 :</label>
+                          <input type="text" name="SocialActSrtYM" id="SocialActSrtYM" value="" data-format-type="month" placeholder="2016.03">
                           <div class="validation hidden" aria-hidden="true"></div>
                       </div>
                       <div class="input input-intern-enddate is-label">
@@ -248,8 +248,8 @@
                     <div class="row licenseRow">
                         <div class="input input-certificate-name is-label  is-value" data-comp_type="jkAc">
                             <input type="hidden" name="License[c14].Lc_Code" data-type="Lc_Code" value="">
-                            <label for="licenseName">자격증 명 <span class="star">*</span> : </label>
-                            <input type="text" class="licenseName" name="licenseName" value="" maxlength="50">
+                            <label for="licenseNm">자격증 명 <span class="star">*</span> : </label>
+                            <input type="text" class="licenseNm" name="licenseNm" value="" maxlength="50">
                         </div>
                         <div class="input input-certificate-agency is-label  is-value">
                             <label for="licenseLcPub">발행처 : </label>
@@ -263,7 +263,7 @@
                     </div>
                     <button type="button" class="button fieldDel"><span>자격증 삭제</span></button>
                 </div>
-            </div>
+            </d iv>
                 <button type="button" class="button buttonAddField" id="licenseActAdd"><span>자격증 추가</span></button>
             </div>
         </div>

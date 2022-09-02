@@ -4,16 +4,21 @@ $(document).on("change",".schoolTypeSelect",function(){
     console.log(attribute);
     let reusult = $(this).val();
     let string = '';
+    let value = '';
+    let className = $(this).parents('.container')[0];
+    className = className.classList[1];
+    className = className.split('container')[1];
+    value = Number(className);
     if(reusult==='0'){
         string = '<div class="input input-education-name search is-label is-ellipsis is-value" id="highSchoolAutocomplete_c1">'+
                  '       <label for="schlNm">학교명 <span class="star">*</span> : </label>'+
-                 '       <input type="text" class="schlName" name="schlName" value="" autocomplete="off" maxlength="50">'+
+                 '       <input type="text" class="schlName" name="SchlInfoList['+(value-1)+'].schlName" value="" autocomplete="off" maxlength="50">'+
                  '       <input type="hidden" name="schoolCode" class="schoolCode" data-type="School_Code" value="">'+
                  '       <input type="hidden" name="areaCode" class="areaCode" data-type="GG_Area_Code" value="">'+
                  '   </div>'+
                  '   <div class="input input-education-enddate is-label is-value">'+
                  '       <label for="gradYear">졸업년도 <span class="star">*</span> : </label>'+
-                 '       <input type="text" name="gradYear" class="gradYear" placeholder="2016" data-format-type="year" value="2010" autocomplete="off">'+
+                 '       <input type="text" name="SchlInfoList['+(value-1)+'].gradYear" class="gradYear" placeholder="2016" data-format-type="year" value="2010" autocomplete="off">'+
                  '      <div class="validation hidden" aria-hidden="true"></div>'+
                  '   </div>'+
                  '   <div class="dropdown dropdown-edcation-state is-label selected">'+
@@ -23,7 +28,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                  '         <option value="5">졸업예정</option>'+
                  '         <option value="4">재학중</option>'+
                  '       </select>'+
-                 '       <input type="hidden" name="schlGradType" class="schlGradType" value="10">'+
+                 '       <input type="hidden" name="schlGradType" class="SchlInfoList['+(value-1)+'].schlGradType" value="10">'+
                  '   </div>'+
                  '   <div class="dropdown dropdown-edcation-highschool-category is-label selected">'+
                  '       <div class="label" aria-hidden="false">전공계열 : </div>'+
@@ -33,20 +38,20 @@ $(document).on("change",".schoolTypeSelect",function(){
                  '         <option value="전문(실업)>전문(실업)</option>'+
                  '         <option value="예체능">예체능</option>'+
                  '       </select>'+
-                 '       <input type="hidden" name="majorName" class="majorName" value="2">'+
+                 '       <input type="hidden" name="majorName" class="SchlInfoList['+(value-1)+'].majorName" value="2">'+
                  '   </div>'+
                  '  <div class="checkbox checkbox-education-ged devGedCheck" style="display: inline-block;">'+
-                 '      <input type="checkbox" class="gedStat" name="gedStat" value="1">'+
+                 '      <input type="checkbox" class="gedStat" name="SchlInfoList['+(value-1)+'].gedStat" value="1">'+
                  '      <label for="gedStat">대입검정고시</label>'+
-                 '      <input type="hidden" name="schlGradePrftScr" class="schlGradePrftScr" value="0">'+
-                 '      <input type="hidden" name="schlGrade" class="schlGrade" value="0">'+
-                 '      <input type="hidden" name="schlMstrDctr" class="schlMstrDctr" value="0">'+
-                 '      <input type="text" name="entcYM" class="entcYM" data-format-type="month" value="0" placeholder="2012.03">'+
+                 '      <input type="hidden" name="SchlInfoList['+(value-1)+'].schlGradePrftScr" class="schlGradePrftScr" value="0">'+
+                 '      <input type="hidden" name="SchlInfoList['+(value-1)+'].schlGrade" class="schlGrade" value="0">'+
+                 '      <input type="hidden" name="SchlInfoList['+(value-1)+'].schlMstrDctr" class="schlMstrDctr" value="0">'+
+                 '      <input type="text" name="SchlInfoList['+(value-1)+'].entcYM" class="entcYM" data-format-type="month" value="0" placeholder="2012.03">'+
                  '  </div>';
     }else if(reusult==='1'){
         string =  '<div class="input input-education-name is-label is-ellipsis  is-value" id="UnivSchoolautoComplete_c2" data-comp_type="jkAc">'+
                   '  <label for="schlNm">학교명 <span class="star">*</span> : </label>'+
-                  '  <input type="text" class="schlName" name="schlName" value="" autocomplete="off" maxlength="50">'+
+                  '  <input type="text" class="schlName" name="SchlInfoList['+(value-1)+'].schlName" value="" autocomplete="off" maxlength="50">'+
                   '  <div class="validation hidden" aria-hidden="true">학교명을 입력해주세요</div>'+
                   '  <div class="autocomplete hidden" aria-hidden="true" data-comp_type="jkAcResultWrap"></div>'+
                   '  <input type="hidden" name="schoolCode" id="schoolCode" data-type="School_Code" value="">'+
@@ -56,12 +61,12 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '<input type="hidden" name="UnivSchool[c2].Schl_Type_Code" value="1">'+
                   '<div class="input input-education-startdate is-label is-value">'+
                   '  <label for="entcYM">입학년월 <span class="star">*</span> : </label>'+
-                  '  <input type="text" name="entcYM" class="entcYM" data-format-type="month" value="" placeholder="2012.03">'+
+                  '  <input type="text" name="SchlInfoList['+(value-1)+'].entcYM" class="entcYM" data-format-type="month" value="" placeholder="2012.03">'+
                   '  <div class="validation hidden" aria-hidden="true"></div>'+
                   '</div>'+
                   '<div class="input input-education-enddate is-label is-value">'+
                   '  <label for="gradYear">졸업년월 <span class="star">*</span> : </label>'+
-                  '  <input type="text" name="gradYear" class="gradYear" data-format-type="month" value="" placeholder="2016.02">'+
+                  '  <input type="text" name="SchlInfoList['+(value-1)+'].gradYear" class="gradYear" data-format-type="month" value="" placeholder="2016.02">'+
                   '  <div class="validation hidden" aria-hidden="true"></div>'+
                   '</div>'+
                   '<div class="dropdown dropdown-edcation-state is-label selected">'+
@@ -74,7 +79,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '      <option value="9">수료</option>'+
                   '      <option value="3">휴학</option>'+
                   '   </select>'+
-                  '   <input type="hidden" name="schlGradType" value="10" class="schlGradType">'+
+                  '   <input type="hidden" name="SchlInfoList['+(value-1)+'].schlGradType" value="10" class="schlGradType">'+
                   '   </div>'+
                   '    <div class="checkbox devTrnfCheck" style="display:inline-block;">'+
                   '        <input type="checkbox" class="trnfstat" name="trnfstat" value="1">'+
@@ -85,7 +90,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '    <span class="devMainMajorTemplateArea">'+
                   ' <div class="input input-education-major-name search is-label is-value" id="UnivMajorAutoComplete_1_0" data-comp_type="jkAc">'+
                   '  <label for="majorName">전공명 : </label>'+
-                  '  <input type="text" class="majorName" name="majorName" value="" autocomplete="off" maxlength="50">'+
+                  '  <input type="text" class="majorName" name="SchlInfoList['+(value-1)+'].majorName" value="" autocomplete="off" maxlength="50">'+
                   '  <div class="autocomplete hidden" aria-hidden="true" data-comp_type="jkAcResultWrap"></div>'+
                   '  <input type="hidden" class="majorNm" name="majorNm" value="">'+
                   '  <input type="hidden" class="mjorCode" name="mjorCode" value="">'+
@@ -94,7 +99,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                 '</span>'+
                 '   <div class="input input-education-grades is-label is-value">'+
                 '       <label for="schlGrade">학점</label>'+
-                '        <input type="text" name="schlGrade" class="schlGrade" value="" maxlength="4" data-format-type="score">'+
+                '        <input type="text" name="SchlInfoList['+(value-1)+'].schlGrade" class="schlGrade" value="" maxlength="4" data-format-type="score">'+
                 '       <div class="validation hidden" aria-hidden="true"></div>'+
                 '   </div>'+
                 '   <div class="dropdown dropdown-education-total is-label selected">'+
@@ -105,15 +110,15 @@ $(document).on("change",".schoolTypeSelect",function(){
                 '       <option value="4.0">4.0</option>'+
                 '       <option value="100">100</option>'+
                 '      <select>'+
-                '      <input type="hidden" name="schlGradePrftScr" class="schlGradePrftScr" value="4.5">'+
-                '      <input type="hidden" name="schlMstrDctr" class="schlMstrDctr" value="0">'+
+                '      <input type="hidden" name="SchlInfoList['+(value-1)+'].schlGradePrftScr" class="schlGradePrftScr" value="4.5">'+
+                '      <input type="hidden" name="SchlInfoList['+(value-1)+'].schlMstrDctr" class="schlMstrDctr" value="0">'+
                 '   </div>'+
                 '</div>'+
                 '<span class="devOtherUnivMajorTemplateArea">';
     }else if(reusult==='2'){
         string =  '<div class="input input-education-name is-label is-ellipsis  is-value" id="UnivSchoolautoComplete_c2" data-comp_type="jkAc">'+
                   '  <label for="schlNm">학교명 <span class="star">*</span> : </label>'+
-                  '  <input type="text" class="schlName" name="schlName" value="" autocomplete="off" maxlength="50">'+
+                  '  <input type="text" class="schlName" name="SchlInfoList['+(value-1)+'].schlName" value="" autocomplete="off" maxlength="50">'+
                   '  <div class="validation hidden" aria-hidden="true">학교명을 입력해주세요</div>'+
                   '  <div class="autocomplete hidden" aria-hidden="true" data-comp_type="jkAcResultWrap"></div>'+
                   '  <input type="hidden" name="schoolCode" class="schoolCode" data-type="School_Code" value="">'+
@@ -122,12 +127,12 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '</div>'+
                   '<div class="input input-education-startdate is-label is-value">'+
                   '  <label for="entcYM">입학년월 <span class="star">*</span> : </label>'+
-                  '  <input type="text" name="entcYM" class="entcYM" data-format-type="month" value="201003" placeholder="2012.03">'+
+                  '  <input type="text" name="SchlInfoList['+(value-1)+'].entcYM" class="entcYM" data-format-type="month" value="201003" placeholder="2012.03">'+
                   '  <div class="validation hidden" aria-hidden="true"></div>'+
                   '</div>'+
                   '<div class="input input-education-enddate is-label is-value">'+
                   '  <label for="gradYear">졸업년월 <span class="star">*</span> : </label>'+
-                  '  <input type="text" name="gradYear" class="gradYear" data-format-type="month" value="201502" placeholder="2016.02">'+
+                  '  <input type="text" name="SchlInfoList['+(value-1)+'].gradYear" class="gradYear" data-format-type="month" value="201502" placeholder="2016.02">'+
                   '  <div class="validation hidden" aria-hidden="true"></div>'+
                   '</div>'+
                   '<input type="hidden" name="UnivSchool[c2].Mstr_Dctr_Type_Code">'+
@@ -141,10 +146,10 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '      <option value="9">수료</option>'+
                   '      <option value="3">휴학</option>'+
                   '   </select>'+
-                  '   <input type="hidden" name="schlGradType" value="10" class="schlGradType">'+
+                  '   <input type="hidden" name="SchlInfoList['+(value-1)+'].schlGradType" value="10" class="schlGradType">'+
                   '   </div>'+
                   '    <div class="checkbox devTrnfCheck" style="display:inline-block;">'+
-                  '        <input type="checkbox" class="trnfstat" niame="trnfstat" value="1">'+
+                  '        <input type="checkbox" class="trnfstat" name="SchlInfoList['+(value-1)+'].trnfstat" value="1">'+
                   '        <label for="trnfstat">편입</label>'+
                   '    </div>'+
                   '   </div>'+
@@ -152,7 +157,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '  <span class="devMainMajorTemplateArea">'+
                   '  <div class="input input-education-major-name search is-label is-value" id="UnivMajorAutoComplete_1_0" data-comp_type="jkAc">'+
                   '  <label for="majorName">전공명 : </label>'+
-                  '  <input type="text" class="majorName" name="majorName" value="" autocomplete="off" maxlength="50">'+
+                  '  <input type="text" class="majorName" name="SchlInfoList['+(value-1)+'].majorName" value="" autocomplete="off" maxlength="50">'+
                   '  <div class="autocomplete hidden" aria-hidden="true" data-comp_type="jkAcResultWrap"></div>'+
                   '  <input type="hidden" class="UnivMajorMajorNm" name="UnivMajorMajorNm" value="">'+
                   '  <input type="hidden" class="UnivMajorMajorCode" name="UnivMajorMajorCode" value="">'+
@@ -161,7 +166,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '</span>'+
                   '   <div class="input input-education-grades is-label is-value">'+
                   '      <label for="schlGrade">학점</label>'+
-                  '      <input type="text" name="schlGrade" class="schlGrade" value="" maxlength="4" data-format-type="score">'+
+                  '      <input type="text" name="SchlInfoList['+(value-1)+'].schlGrade" class="schlGrade" value="" maxlength="4" data-format-type="score">'+
                   '      <div class="validation hidden" aria-hidden="true"></div>'+
                   '   </div>'+
                   '   <div class="dropdown dropdown-education-total is-label selected">'+
@@ -172,15 +177,15 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '       <option value="4.0">4.0</option>'+
                   '       <option value="100">100</option>'+
                   '      <select>'+
-                  '      <input type="hidden" name="schlGradePrftScr" class="schlGradePrftScr" value="4.5">'+
-                  '      <input type="hidden" name="schlMstrDctr" class="schlMstrDctr" value="0">'+
+                  '      <input type="hidden" name="SchlInfoList['+(value-1)+'].schlGradePrftScr" class="schlGradePrftScr" value="4.5">'+
+                  '      <input type="hidden" name="SchlInfoList['+(value-1)+'].schlMstrDctr" class="schlMstrDctr" value="0">'+
                   '   </div>'+
                   '</div>'+
                   '<span class="devOtherUnivMajorTemplateArea">';
     }else if(reusult==='3'){
         string =  '<div class="input input-education-name is-label is-ellipsis  is-value" id="UnivSchoolautoComplete_c2" data-comp_type="jkAc">'+
                   '  <label for="schlNm">학교명 <span class="star">*</span> : </label>'+
-                  '  <input type="text" class="schlName" name="schlName" value="" autocomplete="off" maxlength="50">'+
+                  '  <input type="text" class="schlName" name="SchlInfoList['+(value-1)+'].schlName" value="" autocomplete="off" maxlength="50">'+
                   '  <div class="validation hidden" aria-hidden="true">학교명을 입력해주세요</div>'+
                   '  <div class="autocomplete hidden" aria-hidden="true" data-comp_type="jkAcResultWrap"></div>'+
                   '  <input type="hidden" name="schoolCode" class="schoolCode" data-type="School_Code" value="">'+
@@ -194,16 +199,16 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '     <option type="button" value="3">박사</option>'+
                   '     <option type="button" value="1">석박사</option>'+
                   '  </select>'+
-                  '  <input type="hidden" name="schlMstrDctr" class="schlMstrDctr" value="0">'+
+                  '  <input type="hidden" name="SchlInfoList['+(value-1)+'].schlMstrDctr" class="schlMstrDctr" value="0">'+
                   '</div>'+
                   '<div class="input input-education-startdate is-label is-value">'+
                   '  <label for="entcYM">입학년월 <span class="star">*</span> : </label>'+
-                  '  <input type="text" name="entcYM" class="entcYM" value="201003" placeholder="2012.03">'+
+                  '  <input type="text" name="SchlInfoList['+(value-1)+'].entcYM" class="entcYM" value="201003" placeholder="2012.03">'+
                   '  <div class="validation hidden" aria-hidden="true"></div>'+
                   '</div>'+
                   '<div class="input input-education-enddate is-label is-value">'+
                   '  <label for="gradYear">졸업년월 <span class="star">*</span> : </label>'+
-                  '  <input type="text" name="gradYear" class="gradYear" data-format-type="month" value="" placeholder="2016.02">'+
+                  '  <input type="text" name="SchlInfoList['+(value-1)+'].gradYear" class="gradYear" data-format-type="month" value="" placeholder="2016.02">'+
                   '  <div class="validation hidden" aria-hidden="true"></div>'+
                   '</div>'+
                   '<div class="dropdown dropdown-edcation-state is-label selected">'+
@@ -219,7 +224,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '   <input type="hidden" name="schlGradType" value="10" class="schlGradType">'+
                   '   </div>'+
                   '    <div class="checkbox devTrnfCheck" style="display:inline-block;">'+
-                  '        <input type="checkbox" class="trnfstat" name="trnfstat" value="1">'+
+                  '        <input type="checkbox" class="trnfstat" name="SchlInfoList['+(value-1)+'].trnfstat" value="1">'+
                   '        <label for="trnfstat">편입</label>'+
                   '    </div>'+
                   '   </div>'+
@@ -227,7 +232,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                   '   <span class="devMainMajorTemplateArea">'+
                   '     <div class="input input-education-major-name search is-label is-value" id="UnivMajorAutoComplete_1_0" data-comp_type="jkAc">'+
                   '<label for="UnivMajorMajorName">전공명 : </label>'+
-                  '<input type="text" class="majorName" name="majorName" value="" autocomplete="off" maxlength="50">'+
+                  '<input type="text" class="majorName" name="SchlInfoList['+(value-1)+'].majorName" value="" autocomplete="off" maxlength="50">'+
                   '<div class="autocomplete hidden" aria-hidden="true" data-comp_type="jkAcResultWrap"></div>'+
                   '<input type="hidden" class="UnivMajorMajorNm" name="UnivMajorMajorNm" value="">'+
                   '<input type="hidden" class="UnivMajorMajorCode" name="UnivMajorMajorCode" value="">'+
@@ -236,7 +241,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                 '</span>'+
                 '   <div class="input input-education-grades is-label is-value">'+
                 '       <label for="schlGrade">학점</label>'+
-                '        <input type="text" name="schlGrade" class="schlGrade" value="" maxlength="4" data-format-type="score">'+
+                '        <input type="text" name="SchlInfoList['+(value-1)+'].schlGrade" class="schlGrade" value="" maxlength="4" data-format-type="score">'+
                 '       <div class="validation hidden" aria-hidden="true"></div>'+
                 '   </div>'+
                 '   <div class="dropdown dropdown-education-total is-label selected">'+
@@ -247,7 +252,7 @@ $(document).on("change",".schoolTypeSelect",function(){
                 '       <option value="4.0">4.0</option>'+
                 '       <option value="100">100</option>'+
                 '      <select>'+
-                '      <input type="hidden" name="schlGradePrftScr" class="schlGradePrftScr" value="4.5">'+
+                '      <input type="hidden" name="SchlInfoList['+(value-1)+'].schlGradePrftScr" class="schlGradePrftScr" value="4.5">'+
                 '   </div>'+
                 '</div>'+
                 '<span class="devOtherUnivMajorTemplateArea">';
@@ -287,7 +292,7 @@ $(document).ready(function () {
                     '    <input type="hidden" class="schlType" name="schlType" value="0"></input>'+
                     '    </div>'+
                     '    <div class="schoolTypeContainer"></div>'+
-                    '    <input type="hidden" class="schlType" name="schlType" value=""></input>'+
+                    '    <input type="hidden" class="schlType" name="SchlInfoList['+(value-1)+'].schlType" value=""></input>'+
                     '   <button type="button" class="button buttonDeleteField"><span>삭제</span></button>'+
                     '</div>'+
                     '<br>';
@@ -324,16 +329,16 @@ $(document).ready(function () {
                     '        <option value="5">사회활동</option>'+
                     '        <option value="6">교내활동</option>'+
                     '       </select>'+
-                    '       <input type="hidden" name="socialActTypeCode" class="socialActTypeCode" value="">'+
+                    '       <input type="hidden" name="socialActType" class="socialActType" value="1">'+
                     '    </div>'+
                     '    <div class="input input-intern-name is-label">'+
-                    '        <label for="SocialInstName">회사/기관/단체명 <span class="star">*</span> : </label>'+
-                    '        <input type="text" name="SocialInstName" class="SocialInstName" value="" maxlength="50">'+
+                    '        <label for="SocialInstNm">회사/기관/단체명 <span class="star">*</span> : </label>'+
+                    '        <input type="text" name="SocialInstNm" class="SocialInstNm" value="" maxlength="50">'+
                     '        <div class="validation hidden" aria-hidden="true"></div>'+
                     '    </div>'+
                     '    <div class="input input-intern-startdate is-label">'+
-                    '        <label for="SocialActStartYM">시작년월 :</label>'+
-                    '       <input type="text" name="SocialActStartYM" id="SocialActStartYM" value="" data-format-type="month" placeholder="2016.03">'+
+                    '        <label for="SocialActSrtYM">시작년월 :</label>'+
+                    '       <input type="text" name="SocialActSrtYM" id="SocialActSrtYM" value="" data-format-type="month" placeholder="2016.03">'+
                     '        <div class="validation hidden" aria-hidden="true"></div>'+
                     '    </div>'+
                     '   <div class="input input-intern-enddate is-label">'+
